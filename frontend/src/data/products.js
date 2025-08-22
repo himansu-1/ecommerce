@@ -1,0 +1,73 @@
+// src/data/products.js
+
+const productsData = [
+    {
+      id: '1',
+      title: 'Classic Leather Jacket',
+      description: 'High-quality leather jacket for all seasons.',
+      category: 'Fashion',
+      subcategory: 'Outerwear',
+      price: 129.99,
+      location: 'New York',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Leather+Jacket',
+      views: 45,
+    },
+    {
+      id: '2',
+      title: 'Wireless Bluetooth Headphones',
+      description: 'Noise-cancelling over-ear headphones with long battery life.',
+      category: 'Electronics',
+      subcategory: 'Audio',
+      price: 89.99,
+      location: 'San Francisco',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Headphones',
+      views: 88,
+    },
+    {
+      id: '3',
+      title: 'Organic Face Cream',
+      description: 'Hydrating face cream made from all-natural ingredients.',
+      category: 'Cosmetics',
+      subcategory: 'Skincare',
+      price: 24.99,
+      location: 'Chicago',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Face+Cream',
+      views: 21,
+    },
+    {
+      id: '4',
+      title: 'Men’s Casual Sneakers',
+      description: 'Comfortable everyday sneakers for casual wear.',
+      category: 'Fashion',
+      subcategory: 'Footwear',
+      price: 49.99,
+      location: 'Austin',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Sneakers',
+      views: 64,
+    },
+    {
+      id: '5',
+      title: 'Smartwatch Series 7',
+      description: 'Latest model with fitness tracking and notification support.',
+      category: 'Electronics',
+      subcategory: 'Wearables',
+      price: 199.99,
+      location: 'Seattle',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Smartwatch',
+      views: 112,
+    },
+    {
+      id: '6',
+      title: 'Luxury Perfume for Women',
+      description: 'Elegant scent perfect for any occasion.',
+      category: 'Cosmetics',
+      subcategory: 'Fragrances',
+      price: 59.99,
+      location: 'Los Angeles',
+      imageUrl: 'https://via.placeholder.com/300x200?text=Perfume',
+      views: 35,
+    },
+  ];
+  
+  export default productsData;
+  
