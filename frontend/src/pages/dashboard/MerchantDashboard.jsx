@@ -66,7 +66,7 @@ const MerchantDashboard = () => {
             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
           </tr>
         </thead>
-        <tbody>
+          <tbody className="bg-white divide-y divide-gray-200">
           {loading ? (
             <tr>
               <td colSpan={6} className="text-center py-4">Loading products...</td>
@@ -92,7 +92,7 @@ const MerchantDashboard = () => {
                 <td className="px-4 py-2">
                   <button
                     onClick={() => handleDelete(product._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    className="w-full bg-red-500 text-white p-1 rounded hover:bg-red-600 transition duration-200 hover:cursor-pointer text-sm"
                   >
                     Delete
                   </button>

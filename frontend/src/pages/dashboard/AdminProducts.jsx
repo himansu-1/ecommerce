@@ -44,7 +44,7 @@ const AdminProducts = () => {
                 <td className="px-6 py-4">{p.merchant?.username}</td>
                 <td className="px-6 py-4">${p.price}</td>
                 <td className="px-6 py-4 text-right">
-                  <button className="text-red-500 hover:underline" onClick={() => handleDelete(p._id)}>Delete</button>
+                  <button className="w-full bg-red-500 text-white p-1 rounded hover:bg-red-600 transition duration-200 hover:cursor-pointer text-sm" onClick={() => handleDelete(p._id)}>Delete</button>
                 </td>
               </tr>
             ))}

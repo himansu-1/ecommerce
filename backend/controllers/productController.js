@@ -164,3 +164,24 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: "Error deleting product" });
   }
 };
+
+export const getSingleProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+
+    const product = await Product.findById(productId).populate({
+      path: 'merchant',
+      select: 'username email',
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.json(product);
+  } catch (error) {
+    console.log(error);
+    
+    res.status(500).json({ message: "Error deleting product" });
+  }
+};

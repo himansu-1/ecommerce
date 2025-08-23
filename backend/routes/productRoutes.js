@@ -4,7 +4,8 @@ import {
   updateProduct,
   listMerchantProducts,
   browseProducts,
-  deleteProduct
+  deleteProduct,
+  getSingleProduct
 } from "../controllers/productController.js";
 import { authenticateJWT, authorizeRoles } from "../middlewares/authMiddleware.js";
 import upload from "../middlewares/uploadMiddleware.js";
@@ -40,6 +41,11 @@ router.delete(
   authenticateJWT,
   authorizeRoles("merchant"),
   deleteProduct
+);
+
+router.get(
+  "/products/:id",
+  getSingleProduct
 );
 
 // Browse products for all users (no auth required)

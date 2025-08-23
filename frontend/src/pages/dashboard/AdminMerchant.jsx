@@ -52,33 +52,33 @@ const AdminMerchant = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <table className="min-w-full border-collapse">
-          <thead>
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
             <tr>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Created At</th>
-              <th>Verified</th>
-              <th>Products Count</th>
-              <th>Actions</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Username</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Email</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Created At</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Verified</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Products Count</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase'>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-white divide-y divide-gray-200">
             {merchants.map((m) => (
               <tr key={m._id}>
-                <td>{m.username}</td>
-                <td>{m.email}</td>
-                <td>{new Date(m.createdAt).toLocaleDateString()}</td>
-                <td>
+                <td className="px-6 py-4">{m.username}</td>
+                <td className="px-6 py-4">{m.email}</td>
+                <td className="px-6 py-4">{new Date(m.createdAt).toLocaleDateString()}</td>
+                <td className="px-6 py-4">
                   <input
                     type="checkbox"
                     checked={m.isVerified}
                     onChange={() => !m.isVerified && handleVerify(m._id)}
                   />
                 </td>
-                <td>{m.productCount || 0}</td>
-                <td>
-                  <button onClick={() => handleDelete(m._id)} className="btn-danger">
+                <td className="px-6 py-4">{m.productCount || 0}</td>
+                <td className="px-6 py-4">
+                  <button onClick={() => handleDelete(m._id)} className="w-full bg-red-500 text-white p-1 rounded hover:bg-red-600 transition duration-200 hover:cursor-pointer text-sm">
                     Delete
                   </button>
                 </td>
