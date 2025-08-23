@@ -17,9 +17,8 @@ connectDB();
 // Global middlewares
 // app.use(cors());
 app.use(cors({
-  // origin: 'https://ecommerce-pi-neon.vercel.app',
-  // origin: 'https://ecommerce-seven-silk-23.vercel.app',
-  origin: process.env.FRONT_ENDPOINT,
+  origin: 'https://ecommerce-pi-neon.vercel.app',
+  // origin: process.env.FRONT_ENDPOINT,
   credentials: true,
 }));
 
