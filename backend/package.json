@@ -20,5 +20,6 @@
     "nodemon": "^2.0.22"
   },
   "author": "Your Name",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }

@@ -24,7 +24,7 @@ router.post(
 router.put(
   "/products/:id",
   authenticateJWT,
-  authorizeRoles("merchant"),
+  authorizeRoles(["merchant", "admin"]),
   upload.single("image"),
   updateProduct
 );

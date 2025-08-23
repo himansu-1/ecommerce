@@ -47,13 +47,28 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
-    const productId = req.params.id;
-    const merchantId = req.user.id;
+    const productId = req.params.id;let product;
 
-    const product = await Product.findOne({ _id: productId, merchant: merchantId });
+    if (req.user.role === "admin") {
+      // Admin can update any product; must pass merchantId
+      const { merchantId } = req.body;
+
+      if (!merchantId) {
+        return res.status(400).json({ message: "Merchant ID is required for admin update" });
+      }
+
+      product = await Product.findOne({ _id: productId, merchant: merchantId });
+
+    } else {
+      // Merchant can only update their own product
+      const merchantId = req.user.id;
+      product = await Product.findOne({ _id: productId, merchant: merchantId });
+    }
+
     if (!product) {
       return res.status(404).json({ message: "Product not found or unauthorized" });
     }
+
 
     const {
       title,

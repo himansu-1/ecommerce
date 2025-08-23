@@ -97,7 +97,7 @@ const Navbar = () => {
                 ) : (
                   <>
                     {/* <Link to={getDashboardLink()} className="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Dashboard</Link> */}
-                    <button className="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden logout-btn" onClick={handleLogout}>
+                    <button className="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden logout-btn hover:cursor-pointer" onClick={handleLogout}>
                       Logout
                     </button>
                   </>

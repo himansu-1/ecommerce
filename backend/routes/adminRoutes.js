@@ -7,7 +7,8 @@ import {
   getViewStats,
   deleteMerchant,
   deleteUser,
-  deleteProduct
+  deleteProduct,
+  editMerchant
 } from "../controllers/adminController.js";
 import { authenticateJWT, authorizeRoles } from "../middlewares/authMiddleware.js";
 
@@ -21,6 +22,7 @@ router.post("/merchants/:id/verify", verifyMerchant);
 router.get("/users", getUsers);
 router.get("/products", getProducts);
 router.get("/views/stats", getViewStats);
+router.put("/merchants/:id", authorizeRoles("admin"), editMerchant);
 router.delete("/merchants/:id", authorizeRoles("admin"), deleteMerchant);
 router.delete("/users/:id", authorizeRoles("admin"), deleteUser);
 router.delete("/products/:id", authorizeRoles("admin"), deleteProduct);

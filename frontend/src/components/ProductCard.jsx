@@ -12,12 +12,12 @@ const ProductCard = ({ product, onClick }) => {
       <img
         src={`${API_BASE_URL.replace(/\/api$/, '')}${product.imageUrl}`}
         alt={product.title}
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-contain object-center"
       />
 
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 truncate">{product.title}</h3>
-        <p className="text-green-600 font-medium text-sm mb-1">${product.price.toFixed(2)}</p>
+        <p className="text-green-600 font-medium text-sm mb-1">₹{product.price.toFixed(2)}</p>
         <p className="text-sm text-gray-500 mb-1">{product.category} → {product.subcategory}</p>
         <p className="text-sm text-gray-500">📍 {product.location}</p>
       </div>

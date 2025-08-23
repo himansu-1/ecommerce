@@ -153,3 +153,26 @@ export const deleteProduct = async (req, res) => {
   await Product.deleteOne({ _id: product._id });
   res.json({ message: "Product deleted" });
 };
+
+export const editMerchant = async (req, res) => {
+  try {
+    const merchantId = req.params.id;
+    const { username, email, isVerified } = req.body;
+
+    const merchant = await User.findById(merchantId);
+    if (!merchant || merchant.role !== "merchant") {
+      return res.status(404).json({ message: "Merchant not found or invalid role" });
+    }
+
+    if (username !== undefined) merchant.username = username;
+    if (email !== undefined) merchant.email = email;
+    if (isVerified !== undefined) merchant.isVerified = isVerified;
+
+    await merchant.save();
+
+    res.json(merchant);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to update merchant" });
+  }
+};
