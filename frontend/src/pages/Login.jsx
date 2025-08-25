@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { API_BASE_URL } from '../utils/roles';
-import { loginSuccess } from '../features/auth/authSlice';
-import { selectCurrentUser } from '../features/auth/authSelectors';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { API_BASE_URL } from "../utils/roles";
+import { loginSuccess } from "../features/auth/authSlice";
+import { selectCurrentUser } from "../features/auth/authSelectors";
 
 const Login = () => {
-  const [form, setForm] = useState({ email: '', password: '', role: 'user' });
+  const [form, setForm] = useState({ email: "", password: "", role: "user" });
   const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
@@ -17,9 +17,9 @@ const Login = () => {
   // Redirect after login
   useEffect(() => {
     if (user) {
-      if (user.role === 'admin') navigate('/admin-dashboard');
-      else if (user.role === 'merchant') navigate('/merchant-dashboard');
-      else navigate('/dashboard');
+      if (user.role === "admin") navigate("/admin-dashboard");
+      else if (user.role === "merchant") navigate("/merchant-dashboard");
+      else navigate("/dashboard");
     }
   }, [user, navigate]);
 
@@ -34,11 +34,11 @@ const Login = () => {
     try {
       const response = await axios.post(`${API_BASE_URL}/auth/login`, form);
       // Store token locally
-      localStorage.setItem('authToken', response.data.token);
-      
+      localStorage.setItem("authToken", response.data.token);
+
       dispatch(loginSuccess(response.data.user));
     } catch (err) {
-      const msg = err.response?.data?.message || 'Login failed';
+      const msg = err.response?.data?.message || "Login failed";
       setError(msg);
     }
   };
@@ -86,6 +86,15 @@ const Login = () => {
             Login
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <span className="text-sm text-gray-600">Don't have an account?</span>
+          <a
+            href="/register"
+            className="ml-2 text-blue-600 hover:underline hover:text-blue-800 text-sm"
+          >
+            Register
+          </a>
+        </div>
       </div>
     </div>
   );
